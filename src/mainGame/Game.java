@@ -1,5 +1,7 @@
 package mainGame;
 
+// If you see this you're connected to the git repository
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
