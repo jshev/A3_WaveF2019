@@ -4,6 +4,7 @@ package mainGame;
  * @author Mark Russo November 4, 2017
  * This class creates sound for the game
  * Implemented in the Game class
+ * Ashley M.
  */
 
 import javax.sound.sampled.AudioInputStream;
