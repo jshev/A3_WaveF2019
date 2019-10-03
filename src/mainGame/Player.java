@@ -30,6 +30,7 @@ public class Player extends GameObject {
 	private boolean doubleHealth = false;
 	private boolean regen = false;
 	private boolean degen = false;
+	private boolean playLowHealthMusic = true;
 
 	private int regenTick = 0;
 	private int score = 0;
@@ -132,6 +133,7 @@ public class Player extends GameObject {
 				break;
 		}
 		health = startingHealth;
+		playLowHealthMusic = true;
 		doubleHealth = false;
 		regen = false;
 		degen = false;
@@ -259,7 +261,8 @@ public class Player extends GameObject {
 				
 
 			}
-			if(health == 40){
+			if(health == 40 && playLowHealthMusic){
+				playLowHealthMusic = false;
 				Sound.playLowHealth();
 				hud.updateHealth(health);
 
