@@ -261,13 +261,13 @@ public class Player extends GameObject {
 				
 
 			}
-			if(health == 40 && playLowHealthMusic){
-				playLowHealthMusic = false;
-				Sound.playLowHealth();
-				hud.updateHealth(health);
-
-
-			}
+//			if(health == 40 && playLowHealthMusic){
+//				playLowHealthMusic = false;
+//				Sound.playLowHealth();
+//				hud.updateHealth(health);
+//
+//
+//			}
 			if (tempObject.getId() == ID.EnemyBoss) {
 				// Allows player time to get out of upper area where they will get hurt once the
 				// boss starts moving
