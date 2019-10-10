@@ -32,5 +32,6 @@ public enum ID { //if you want to add images, animations
 	EnemySmarter(),
 	EnemyBossGhost(),
 	EnemyBossGhostTrail(),
-	EnemyCircle();
+	EnemyCircle(),
+	Coin();
 }

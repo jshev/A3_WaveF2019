@@ -122,6 +122,11 @@ public class HUD {
 		updateScoreText(score);
 	}
 	
+	public void coinCollected() {
+		score += 1000;
+		updateScoreText(score);
+	}
+	
 	public void setScore(int score) {
 		this.score = score;
 	}

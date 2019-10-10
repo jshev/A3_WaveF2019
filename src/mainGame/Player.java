@@ -226,7 +226,7 @@ public class Player extends GameObject {
 	}
 
 	/**
-	 * Checks for collisions with all of the enemies, and handles it accordingly
+	 * Checks for collisions with all of the enemies and coins, and handles it accordingly
 	 */
 	public void collision() {
 
@@ -275,6 +275,14 @@ public class Player extends GameObject {
 					health -= 2;
 					hud.updateScoreColor(Color.red);
 					
+				}
+			}
+			
+			if (tempObject.getId() == ID.Coin) {
+				if (getBounds().intersects(tempObject.getBounds())) {// player collected a coin
+					hud.updateScoreColor(Color.green);
+					hud.coinCollected();
+					handler.removeObject(tempObject);
 				}
 			}
 

@@ -79,6 +79,12 @@ public class Spawn1to10 {
 	 * Called once every 60 seconds by the Game loop
 	 */
 	public void tick() {
+		// Add method to render coin
+		// level time % 300 would add a coin every 5 seconds
+		if (levelTimer % 300 == 0) {
+			handler.addObject(new Coin(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.Coin, handler));
+		}
+		
 		if (levelNumber == 1) {// this is level 1
 			spawnTimer--;// keep decrementing the spawning spawnTimer 60 times a
 							// second
