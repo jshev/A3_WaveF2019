@@ -209,11 +209,11 @@ public class Game extends Canvas implements Runnable {
 				hud.tick();
 				if (Spawn1to10.LEVEL_SET == 1) {// user is on levels 1 thru 10, update them
 					spawner.tick();
-					System.out.println("in 1");
+					//System.out.println("in 1");
 					
 				} else if (Spawn1to10.LEVEL_SET == 2) {// user is on levels 10 thru 20, update them
 					spawner2.tick();
-					System.out.println("in 2");
+					//System.out.println("in 2");
 					
 				}
 			} else if (gameState == STATE.Survival) {
