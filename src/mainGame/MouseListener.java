@@ -26,9 +26,11 @@ public class MouseListener extends MouseAdapter {
 	private Upgrades upgrades;
 	private Player player;
 	private String upgradeText;
+	private String customSurvival;
+	private String customWaves;
 
 	public MouseListener(Game game, Handler handler, HUD hud, Spawn1to10 spawner, Spawn10to20 spawner2,
-			UpgradeScreen upgradeScreen, Player player, Upgrades upgrades) {
+			UpgradeScreen upgradeScreen, Player player, Upgrades upgrades, String customSurvival, String customWaves) {
 		this.game = game;
 		this.handler = handler;
 		this.hud = hud;
@@ -37,6 +39,21 @@ public class MouseListener extends MouseAdapter {
 		this.upgradeScreen = upgradeScreen;
 		this.player = player;
 		this.upgrades = upgrades;
+		this.customSurvival = customSurvival;
+		this.customWaves = customWaves;
+	}
+	public String setCustomSurvival(){
+		return customSurvival;
+	}
+	public String setCustomWaves(){
+		return customWaves;
+	}
+
+	public String getCustomSurvival() {
+		return customSurvival;
+	}
+	public String getCustomWaves(){
+		return customWaves;
 	}
 
 	public void mousePressed(MouseEvent e) {
@@ -110,7 +127,8 @@ public class MouseListener extends MouseAdapter {
 			// Survival Button
 			if (mouseOver(mx, my, 805, 610, 300, 55)) {
 				handler.object.clear();
-				game.gameState = STATE.Survival;
+				game.gameState = STATE.Customization;
+
 
 				player.initialize();
 				game.getSurvival().initialize();

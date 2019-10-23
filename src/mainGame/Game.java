@@ -272,8 +272,8 @@ public class Game extends Canvas implements Runnable {
 			scoreSaved = false;
 			player.render(g);
 		} else if (gameState == STATE.Survival) {
-			pauseMenu.removePrompt();
-			survivalHud.render(g);
+				pauseMenu.removePrompt();
+				survivalHud.render(g);
 		} else if (gameState == STATE.Menu || gameState == STATE.Help) { // user is in help or the menu, draw the menu
 																			// and help objects
 			menu.render(g);
@@ -317,7 +317,7 @@ public class Game extends Canvas implements Runnable {
 		} else if(gameState == STATE.Customization) {
 			customizationScreen.render(g);
 		}
-    
+
 		
     
 		///////// Draw things above this//////////////
