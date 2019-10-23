@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
+import java.awt.image.BufferStrategy;
 import java.net.URL;
 import java.util.Random;
 import javax.swing.JOptionPane;
