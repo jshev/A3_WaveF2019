@@ -50,7 +50,7 @@ public class Menu {
 
 		img = null;
 		try {
-			URL imageURL = Game.class.getResource("images/background2.png");
+			URL imageURL = Game.class.getResource("images/background.png");
 			img = Toolkit.getDefaultToolkit().getImage(imageURL);
 		} catch (Exception e) {
 			e.printStackTrace();

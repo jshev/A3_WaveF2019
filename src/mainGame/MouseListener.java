@@ -28,9 +28,10 @@ public class MouseListener extends MouseAdapter {
 	private String upgradeText;
 	private String customSurvival;
 	private String customWaves;
+	private STATE nextState;
 
 	public MouseListener(Game game, Handler handler, HUD hud, Spawn1to10 spawner, Spawn10to20 spawner2,
-			UpgradeScreen upgradeScreen, Player player, Upgrades upgrades, String customSurvival, String customWaves) {
+			UpgradeScreen upgradeScreen, Player player, Upgrades upgrades) {
 		this.game = game;
 		this.handler = handler;
 		this.hud = hud;
@@ -39,21 +40,8 @@ public class MouseListener extends MouseAdapter {
 		this.upgradeScreen = upgradeScreen;
 		this.player = player;
 		this.upgrades = upgrades;
-		this.customSurvival = customSurvival;
-		this.customWaves = customWaves;
-	}
-	public String setCustomSurvival(){
-		return customSurvival;
-	}
-	public String setCustomWaves(){
-		return customWaves;
-	}
+		this.nextState = null;
 
-	public String getCustomSurvival() {
-		return customSurvival;
-	}
-	public String getCustomWaves(){
-		return customWaves;
 	}
 
 	public void mousePressed(MouseEvent e) {
@@ -120,42 +108,33 @@ public class MouseListener extends MouseAdapter {
 		else if (game.gameState == STATE.Menu) {
 			// Waves Button
 			if (mouseOver(mx, my, 805, 545, 300, 55)) {
-				System.out.println("CUSTOMIZATION: "+player.getImgNum());
+				game.gameState = STATE.Customization;
 				new DifficultyWindow(this);
 			}
 
 			// Survival Button
 			if (mouseOver(mx, my, 805, 610, 300, 55)) {
-				handler.object.clear();
 				game.gameState = STATE.Customization;
-
-
-				player.initialize();
-				game.getSurvival().initialize();
-				handler.addObject(player);
-        
-        Sound.playButtonPress();
-				Sound.stopSoundMenu();
-				Sound.playSoundSurvival();
+				nextState = STATE.Survival;
 			}
 			
 			//Customization
+			/*
 			if(mouseOver(mx, my, 805, 480, 300, 55)) {
-				//handler.addObject(player);
+				handler.addObject(player);
 				game.gameState = STATE.Customization;
 			}
-
+			*/
 			// Help Button
 			else if (mouseOver(mx, my, 805, 740, 300, 55)) {
 				// game.gameState = STATE.Help;
         Sound.playButtonPress();
         
 				JOptionPane.showMessageDialog(game,
-						"How To Play: To play, Waves, you must first understand that you are playing" + " \n"
-								+ " as the small white box in the center of the screen, with the purpose to try to "
+						"How To Play: The controls of the game are to use arrow or W-A-S-D keys on the keyboard" + " \n"
+								+ "to navigate through the game while picking up coins to increase your score. The goal of the game is to "
 								+ " \n"
-								+ "stay alive as long as possible while dodging enemies. To start avoiding enemies,"
-								+ " \n" + " you simply use the keys, W-A-S-D  to navigate the page.",
+								+ "stay alive as long as possible while dodging enemies.",
 						"Help Menu", JOptionPane.INFORMATION_MESSAGE);
 			}
 
@@ -193,15 +172,30 @@ public class MouseListener extends MouseAdapter {
 		else if (game.gameState == STATE.Customization) {
 			if(mouseOver(mx,my, 300, 350, 300, 300)) {
 				player.setImgNum(1);
-				game.gameState = STATE.Menu;
+
 			} else if(mouseOver(mx,my, 850, 350, 300, 300)) {
 				player.setImgNum(2);
-				game.gameState = STATE.Menu;
+
 			} else if(mouseOver(mx,my, 1400, 350, 300, 300)) {
 				player.setImgNum(3);
-				game.gameState = STATE.Menu;
+
 			}
 			player.updateImg();
+			if (nextState == STATE.Survival){
+				nextState = null;
+				game.gameState = STATE.Survival;
+				handler.object.clear();
+
+				player.initialize();
+				game.getSurvival().initialize();
+				handler.addObject(player);
+
+				Sound.playButtonPress();
+				Sound.stopSoundMenu();
+				Sound.playSoundSurvival();
+			} else {
+				game.gameState = STATE.Menu;
+			}
 		}
 	}
 	
