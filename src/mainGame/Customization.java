@@ -40,6 +40,8 @@ public class Customization {
 	private int colorIndex;
 	private Spawn1to10 spawner;
 	private Score score;
+	private Survival survivalGame;
+	private MouseListener mouseListener;
 
 	public Customization(Game game, Handler handler, HUD hud, Spawn1to10 spawner) {
 		this.game = game;
