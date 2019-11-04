@@ -85,7 +85,7 @@ public class Spawn1to10 {
 			handler.addObject(new Coin(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.Coin, handler));
 		}
 		
-		if (levelNumber == 1) {// this is level 1
+		if (levelNumber == 7) {// this is level 1
 			spawnTimer--;// keep decrementing the spawning spawnTimer 60 times a
 							// second
 			levelTimer--;// keep decrementing the level spawnTimer 60 times a
@@ -125,7 +125,7 @@ public class Spawn1to10 {
 			} else if (onScreenTimer == 0) {
 				handler.removeObject(levelString);
 			}
-		} else if (levelNumber == 2) {
+		} else if (levelNumber == 5) {
 			spawnTimer--;
 			levelTimer--;
 			
@@ -169,7 +169,7 @@ public class Spawn1to10 {
 				handler.removeObject(levelString);
 			}
 
-		} else if (levelNumber == 3) {
+		} else if (levelNumber == 6) {
 			spawnTimer--;
 			levelTimer--;
 	
@@ -204,7 +204,7 @@ public class Spawn1to10 {
 			} else if (onScreenTimer == 0) {
 				handler.removeObject(levelString);
 			}
-		} else if (levelNumber == 4) {
+		} else if (levelNumber == 1) {
 			levelTimer--;
 	
 			if (tempCounter < 1) {
@@ -243,7 +243,7 @@ public class Spawn1to10 {
 			} else if (onScreenTimer == 0) {
 				handler.removeObject(levelString);
 			}
-		} else if (levelNumber == 5) {
+		} else if (levelNumber == 3) {
 			levelTimer--;
 		
 			levelString.setString("Ghost Watch Out!");
@@ -277,7 +277,7 @@ public class Spawn1to10 {
 			} else if (onScreenTimer == 0) {
 				handler.removeObject(levelString);
 			}
-		} else if (levelNumber == 6) {
+		} else if (levelNumber == 2) {
 			spawnTimer--;
 			levelTimer--;
 		
@@ -314,7 +314,7 @@ public class Spawn1to10 {
 			} else if (onScreenTimer == 0) {
 				handler.removeObject(levelString);
 			}
-		} else if (levelNumber == 7) {
+		} else if (levelNumber == 8) {
 			spawnTimer--;
 			levelTimer--;
 		
@@ -349,7 +349,7 @@ public class Spawn1to10 {
 			} else if (onScreenTimer == 0) {
 				handler.removeObject(levelString);
 			}
-		} else if (levelNumber == 8) {
+		} else if (levelNumber == 4) {
 			levelTimer--;
 		
 			if (tempCounter < 1) {
