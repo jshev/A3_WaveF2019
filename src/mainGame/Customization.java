@@ -88,7 +88,7 @@ public class Customization {
 			Font font2 = new Font("Amoebic", 1, (int) (60 * (Game.HEIGHT / 1080f)));
 			g.drawImage(img, 0, 0, Game.WIDTH, Game.HEIGHT, null);
 			drawMenuString(g, font, Color.WHITE, "Customization", new int[] {Game.WIDTH/2, 100});
-			drawMenuString(g, font2, Color.WHITE, "Hit Backspace to return to the main menu", new int[] {Game.WIDTH/4, 175});
+			drawMenuString(g, font2, Color.WHITE, "Hit Backspace to return to the main menu", new int[] {Game.WIDTH/4, 900});
 	
 //			drawMenuItem(g, font, Color.WHITE,
 //					new int[] {300, 350, 300, 300}, "", new int[] {0,0});
