@@ -82,14 +82,14 @@ public class Player extends GameObject {
 		if(imgNum!=0) {
 			String newURL;
 			if(imgNum==1) {
-				newURL = "images/pika.png";
-				playerColor = Color.YELLOW;
+				newURL = "images/marioBody.png";
+				playerColor = Color.RED;
 			} else if(imgNum==2) {
-				newURL = "images/bulb.png";	
-				playerColor = Color.CYAN;
+				newURL = "images/princessPeachBody.png";
+				playerColor = Color.PINK;
 			} else if(imgNum==3) {
-				newURL = "images/char.png";
-				playerColor = Color.ORANGE;
+				newURL = "images/luigiBody.png";
+				playerColor = Color.GREEN;
 			} else {
 				return; //Add more customization options here
 			}
