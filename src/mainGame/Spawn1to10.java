@@ -81,11 +81,11 @@ public class Spawn1to10 {
 	public void tick() {
 		// Add method to render coin
 		// level time % 300 would add a coin every 5 seconds
-		if (levelTimer % 300 == 0) {
+		if (levelTimer % 300 == 0 && levelNumber != 10) {
 			handler.addObject(new Coin(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.Coin, handler));
 		}
 		
-		if (levelNumber == 7) {// this is level 1
+		if (levelNumber == 7) {// this is level 7
 			spawnTimer--;// keep decrementing the spawning spawnTimer 60 times a
 							// second
 			levelTimer--;// keep decrementing the level spawnTimer 60 times a

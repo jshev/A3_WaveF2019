@@ -1,6 +1,7 @@
 package mainGame;
 
 import java.awt.Graphics;
+import java.awt.Image;
 import java.util.ArrayList;
 
 /**
@@ -14,6 +15,7 @@ public class Handler {
 	ArrayList<GameObject> object = new ArrayList<GameObject>();
 	ArrayList<Pickup> pickups = new ArrayList<Pickup>();
 	private int timer = 0;
+	private Image enemyImg;
 
 	/**
 	 * Updates each entity in the game by looping through each ArrayList and calling
@@ -112,5 +114,13 @@ public class Handler {
 						// there be more than one)
 			}
 		}
+	}
+	
+	public void setEnemyImage(Image img) {
+		this.enemyImg = img;
+	}
+	
+	public Image getEnemyImage() {
+		return this.enemyImg;
 	}
 }

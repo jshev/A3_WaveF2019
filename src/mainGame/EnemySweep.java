@@ -2,6 +2,7 @@ package mainGame;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
 
 /**
@@ -14,12 +15,21 @@ import java.awt.Rectangle;
 public class EnemySweep extends GameObject {
 
 	private Handler handler;
+	private Image img = null;
 
 	public EnemySweep(double x, double y, double velX, double velY, ID id, Handler handler) {
 		super(x, y, id);
 		this.handler = handler;
 		this.velX = velX;
 		this.velY = velY;
+		this.checkForImage();
+	}
+	
+	private void checkForImage() {
+		Image image = this.handler.getEnemyImage();
+		if (image != null) {
+			this.img = image;
+		}
 	}
 
 	public void tick() {
@@ -46,13 +56,17 @@ public class EnemySweep extends GameObject {
 		}*/
 
 		handler.addObject(new Trail(x, y, ID.Trail, Color.cyan, 16, 16, 0.025, this.handler));
-
+	
 	}
 
 	public void render(Graphics g) {
-		g.setColor(Color.cyan);
-		g.fillRect((int) x, (int) y, (int) Game.scaleX(16), (int) Game.scaleY(16));
-
+		if (this.img != null) {
+			g.clearRect((int) x, (int) y, (int) Game.scaleX(16), (int) Game.scaleY(16));
+			g.drawImage(img, (int) this.x-25, (int) this.y-25, 30,30, null);
+		} else {
+			g.setColor(Color.cyan);
+			g.fillRect((int) x, (int) y, (int) Game.scaleX(16), (int) Game.scaleY(16));
+		}
 	}
 
 	@Override
