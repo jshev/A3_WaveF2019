@@ -52,7 +52,7 @@ public class EnemyBasic extends GameObject {
 	public void render(Graphics g) {
 		if (this.img != null) {
 			g.clearRect((int) x, (int) y, (int) Game.scaleX(16), (int) Game.scaleY(16));
-			g.drawImage(img, (int) this.x-25, (int) this.y-25, 30,30, null);
+			g.drawImage(img, (int) this.x+15, (int) this.y, 30,30, null);
 		} else {
 			g.setColor(Color.red);
 			g.fillRect((int) x, (int) y, (int) Game.scaleX(16), (int) Game.scaleY(16));

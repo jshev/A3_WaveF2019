@@ -85,37 +85,139 @@ public class Spawn1to10 {
 			handler.addObject(new Coin(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.Coin, handler));
 		}
 		
-		if (levelNumber == 7) {// this is level 7
-			spawnTimer--;// keep decrementing the spawning spawnTimer 60 times a
-							// second
-			levelTimer--;// keep decrementing the level spawnTimer 60 times a
-							// second
-			if (tempCounter < 1) {// called only once, but sets the levelTimer
-									// to how long we want this level to
-									// run for
-				levelTimer = 2000;// 2000 / 60 method calls a second = 33.33
-									// seconds long
-				tempCounter++;// ensures the method is only called once
-				
+		if (levelNumber == 1) {
+			levelTimer--;
+	
+			if (tempCounter < 1) {
+				handler.addObject(new EnemyShotgun(Game.scaleX(40), Game.scaleY(100), -20, ID.EnemyShotgun,
+						this.handler));
+				handler.addObject(new EnemyShotgun(Game.scaleX(1400), Game.scaleY(100), -20, ID.EnemyShotgun,
+						this.handler));
+				levelTimer = 1300;
+				tempCounter++;
 			}
-			if (spawnTimer == 0) {// time to spawn another enemy
-				handler.addObject(
-						new EnemyBasic(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.EnemyBasic, handler));// add
+		/*	if (spawnTimer == 0) {// time to spawn another enemy
+				handler.addObject(new EnemyShotgun(Game.scaleX(40), Game.scaleY(100), -20, ID.EnemyShotgun,
+						this.handler));// add
 				spawnTimer = 100;// reset the spawn timer
 			}
-			if (levelTimer == 0) {// level is over
-				handler.clearEnemies();// clear the enemies
-				hud.setLevel(hud.getLevel() + 1);// Increment level number on
-													// HUD
-				spawnTimer = 40;
-				tempCounter = 0;// reset tempCounter
+*/
+			if (levelTimer == 0) {
+				handler.clearEnemies();
+				hud.setLevel(hud.getLevel() + 1);
+				spawnTimer = 10;
+				tempCounter = 0;
+
 				levelNumber += 1;
 				levelsRemaining -= 1;
 				temp = 0;
 				onScreenTimer = 100;
 			}
 			if (onScreenTimer != 0) {
-				if (temp < 1) { // us
+				if (temp < 1) {
+					Sound.playSoundNewLevel();
+					levelString.setString("Level " + levelNumber);
+					handler.addObject(levelString);
+					temp++;
+				}
+				onScreenTimer--;
+			} else if (onScreenTimer == 0) {
+				handler.removeObject(levelString);
+			}
+		} else if (levelNumber == 2) {
+			spawnTimer--;
+			levelTimer--;
+		
+			if (tempCounter < 1) {
+				levelTimer = 1200;
+				tempCounter++;
+			}
+			if (spawnTimer == 35) {
+				handler.addObject(new EnemyRaindrop(0, 0, 0, 9, ID.EnemyRaindrop, handler));
+			} else if (spawnTimer == 0) {
+				handler.addObject(new EnemyRaindrop(0, 0, 0, 9, ID.EnemyRaindrop, handler));
+				spawnTimer = 100;
+			}
+
+			if (levelTimer == 0) {
+				handler.clearEnemies();
+				hud.setLevel(hud.getLevel() + 1);
+				tempCounter = 0;
+				System.out.println(levels.size());
+
+				levelNumber += 1;
+				levelsRemaining -= 1;
+				temp = 0;
+				onScreenTimer = 100;
+			}
+			if (onScreenTimer != 0) {
+				if (temp < 1) {
+					Sound.playSoundNewLevel();
+					levelString.setString("Level " + levelNumber);
+					handler.addObject(levelString);
+					temp++;
+				}
+				onScreenTimer--;
+			} else if (onScreenTimer == 0) {
+				handler.removeObject(levelString);
+			}
+		} else if (levelNumber == 3) {
+			levelTimer--;
+		
+			levelString.setString("Ghost Watch Out!");
+			if (tempCounter < 1) {
+				handler.addObject(new EnemyBossGhost(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), -5, ID.EnemyBossGhost, handler));
+				levelTimer = 1300;
+				tempCounter++;
+			}
+
+			if (levelTimer == 0) {
+				handler.clearEnemies();
+				hud.setLevel(hud.getLevel() + 1);
+				spawnTimer = 10;
+				tempCounter = 0;
+
+				levelNumber += 1;
+				levelsRemaining -= 1;
+				temp = 0;
+				onScreenTimer = 100;
+			}
+			if (onScreenTimer != 0) {
+				if (temp < 1) {
+					levelString.setString("Level 6");
+					handler.addObject(levelString);
+					Sound.playSoundNewLevel();
+//					levelString.setString("Level " + levelNumber);
+//					handler.addObject(levelString);
+					temp++;
+				}
+				onScreenTimer--;
+			} else if (onScreenTimer == 0) {
+				handler.removeObject(levelString);
+			}
+		} else if (levelNumber == 4) {
+			levelTimer--;
+		
+			if (tempCounter < 1) {
+				handler.addObject(new EnemyShooter(500, 100, 200, 200,
+						-15, ID.EnemyShooter, this.handler));
+				levelTimer = 2500;
+				tempCounter++;
+			}
+
+			if (levelTimer == 0) {
+				handler.clearEnemies();
+				hud.setLevel(hud.getLevel() + 1);
+				spawnTimer = 10;
+				tempCounter = 0;
+
+				levelNumber += 1;
+				levelsRemaining -= 1;
+				temp = 0;
+				onScreenTimer = 100;
+			}
+			if (onScreenTimer != 0) {
+				if (temp < 1) {
 					Sound.playSoundNewLevel();
 					levelString.setString("Level " + levelNumber);
 					handler.addObject(levelString);
@@ -204,107 +306,37 @@ public class Spawn1to10 {
 			} else if (onScreenTimer == 0) {
 				handler.removeObject(levelString);
 			}
-		} else if (levelNumber == 1) {
-			levelTimer--;
-	
-			if (tempCounter < 1) {
-				handler.addObject(new EnemyShotgun(Game.scaleX(40), Game.scaleY(100), -20, ID.EnemyShotgun,
-						this.handler));
-				handler.addObject(new EnemyShotgun(Game.scaleX(1400), Game.scaleY(100), -20, ID.EnemyShotgun,
-						this.handler));
-				levelTimer = 1300;
-				tempCounter++;
+		} else if (levelNumber == 7) {// this is level 7
+			spawnTimer--;// keep decrementing the spawning spawnTimer 60 times a
+							// second
+			levelTimer--;// keep decrementing the level spawnTimer 60 times a
+							// second
+			if (tempCounter < 1) {// called only once, but sets the levelTimer
+									// to how long we want this level to
+									// run for
+				levelTimer = 2000;// 2000 / 60 method calls a second = 33.33
+									// seconds long
+				tempCounter++;// ensures the method is only called once
+				
 			}
-		/*	if (spawnTimer == 0) {// time to spawn another enemy
-				handler.addObject(new EnemyShotgun(Game.scaleX(40), Game.scaleY(100), -20, ID.EnemyShotgun,
-						this.handler));// add
+			if (spawnTimer == 0) {// time to spawn another enemy
+				handler.addObject(
+						new EnemyBasic(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.EnemyBasic, handler));// add
 				spawnTimer = 100;// reset the spawn timer
 			}
-*/
-			if (levelTimer == 0) {
-				handler.clearEnemies();
-				hud.setLevel(hud.getLevel() + 1);
-				spawnTimer = 10;
-				tempCounter = 0;
-
+			if (levelTimer == 0) {// level is over
+				handler.clearEnemies();// clear the enemies
+				hud.setLevel(hud.getLevel() + 1);// Increment level number on
+													// HUD
+				spawnTimer = 40;
+				tempCounter = 0;// reset tempCounter
 				levelNumber += 1;
 				levelsRemaining -= 1;
 				temp = 0;
 				onScreenTimer = 100;
 			}
 			if (onScreenTimer != 0) {
-				if (temp < 1) {
-					Sound.playSoundNewLevel();
-					levelString.setString("Level " + levelNumber);
-					handler.addObject(levelString);
-					temp++;
-				}
-				onScreenTimer--;
-			} else if (onScreenTimer == 0) {
-				handler.removeObject(levelString);
-			}
-		} else if (levelNumber == 3) {
-			levelTimer--;
-		
-			levelString.setString("Ghost Watch Out!");
-			if (tempCounter < 1) {
-				handler.addObject(new EnemyBossGhost(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), -5, ID.EnemyBossGhost, handler));
-				levelTimer = 1300;
-				tempCounter++;
-			}
-
-			if (levelTimer == 0) {
-				handler.clearEnemies();
-				hud.setLevel(hud.getLevel() + 1);
-				spawnTimer = 10;
-				tempCounter = 0;
-
-				levelNumber += 1;
-				levelsRemaining -= 1;
-				temp = 0;
-				onScreenTimer = 100;
-			}
-			if (onScreenTimer != 0) {
-				if (temp < 1) {
-					levelString.setString("Level 6");
-					handler.addObject(levelString);
-					Sound.playSoundNewLevel();
-//					levelString.setString("Level " + levelNumber);
-//					handler.addObject(levelString);
-					temp++;
-				}
-				onScreenTimer--;
-			} else if (onScreenTimer == 0) {
-				handler.removeObject(levelString);
-			}
-		} else if (levelNumber == 2) {
-			spawnTimer--;
-			levelTimer--;
-		
-			if (tempCounter < 1) {
-				levelTimer = 1200;
-				tempCounter++;
-			}
-			if (spawnTimer == 35) {
-				handler.addObject(new EnemyRaindrop(0, 0, 0, 9, ID.EnemyRaindrop, handler));
-			} else if (spawnTimer == 0) {
-				handler.addObject(new EnemyRaindrop(0, 0, 0, 9, ID.EnemyRaindrop, handler));
-				spawnTimer = 100;
-			}
-
-			if (levelTimer == 0) {
-				handler.clearEnemies();
-				hud.setLevel(hud.getLevel() + 1);
-				tempCounter = 0;
-				System.out.println(levels.size());
-
-				levelNumber += 1;
-				levelsRemaining -= 1;
-				temp = 0;
-				onScreenTimer = 100;
-			}
-			if (onScreenTimer != 0) {
-				if (temp < 1) {
+				if (temp < 1) { // us
 					Sound.playSoundNewLevel();
 					levelString.setString("Level " + levelNumber);
 					handler.addObject(levelString);
@@ -327,38 +359,6 @@ public class Spawn1to10 {
 						new EnemySmart(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), -3, ID.EnemySmart, handler));
 				spawnTimer = 50;
 			}
-			if (levelTimer == 0) {
-				handler.clearEnemies();
-				hud.setLevel(hud.getLevel() + 1);
-				spawnTimer = 10;
-				tempCounter = 0;
-
-				levelNumber += 1;
-				levelsRemaining -= 1;
-				temp = 0;
-				onScreenTimer = 100;
-			}
-			if (onScreenTimer != 0) {
-				if (temp < 1) {
-					Sound.playSoundNewLevel();
-					levelString.setString("Level " + levelNumber);
-					handler.addObject(levelString);
-					temp++;
-				}
-				onScreenTimer--;
-			} else if (onScreenTimer == 0) {
-				handler.removeObject(levelString);
-			}
-		} else if (levelNumber == 4) {
-			levelTimer--;
-		
-			if (tempCounter < 1) {
-				handler.addObject(new EnemyShooter(500, 100, 200, 200,
-						-15, ID.EnemyShooter, this.handler));
-				levelTimer = 2500;
-				tempCounter++;
-			}
-
 			if (levelTimer == 0) {
 				handler.clearEnemies();
 				hud.setLevel(hud.getLevel() + 1);
