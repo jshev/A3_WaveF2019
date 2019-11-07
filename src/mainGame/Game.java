@@ -50,6 +50,7 @@ public class Game extends Canvas implements Runnable {
 	private MouseListener mouseListener;
 	private Upgrades upgrades;
 	private Player player;
+	private EnemyImageHolder enemyImageHolder;
 	public STATE gameState = STATE.Menu;
 	public STATE previousGameState = STATE.Menu;
 	public static int TEMP_COUNTER;
@@ -93,7 +94,9 @@ public class Game extends Canvas implements Runnable {
 		leaderboard = new Leaderboard(this, this.handler, this.hud, this.spawner);
 		
 		upgradeScreen = new UpgradeScreen(this, this.handler, this.hud);
+		
 		player = new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player, handler, this);
+		enemyImageHolder = new EnemyImageHolder(this.handler);
 		survivalGame = new Survival(this.handler, this.survivalHud, this, player);
 		upgrades = new Upgrades(this, this.handler, this.hud, this.upgradeScreen, this.player, this.spawner,
 				this.spawner2);
@@ -101,7 +104,7 @@ public class Game extends Canvas implements Runnable {
 		gameWin = new GameWin(this, this.handler, this.hud);
 		customizationScreen = new Customization(this, this.handler, this.hud, this.spawner);
 		mouseListener = new MouseListener(this, this.handler, this.hud, this.spawner, this.spawner2, this.upgradeScreen,
-				this.player, this.upgrades);
+				this.player, this.upgrades,this.enemyImageHolder);
 		this.addKeyListener(new KeyInput(this.handler, this, this.hud, this.player, this.spawner, this.upgrades));
 		this.addMouseListener(mouseListener);
 		new Window((int) WIDTH, (int) HEIGHT, "Wave Game", this);

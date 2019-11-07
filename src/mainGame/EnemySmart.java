@@ -2,6 +2,7 @@ package mainGame;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
 
 /**
@@ -16,17 +17,26 @@ public class EnemySmart extends GameObject {
 	private Handler handler;
 	private GameObject player;
 	private int speed;
+	private Image img = null;
 
 	public EnemySmart(double x, double y, int speed, ID id, Handler handler) {
 		super(x, y, id);
 		this.handler = handler;
 		this.speed = speed;
+		this.checkForImage();
 
 		for (int i = 0; i < handler.object.size(); i++) {
 			if (handler.object.get(i).getId() == ID.Player)
 				player = handler.object.get(i);
 		}
 
+	}
+	
+	private void checkForImage() {
+		Image image = this.handler.getEnemyImage();
+		if (image != null) {
+			this.img = image;
+		}
 	}
 
 	public void tick() {
@@ -51,8 +61,12 @@ public class EnemySmart extends GameObject {
 	}
 
 	public void render(Graphics g) {
-		g.setColor(Color.green);
-		g.fillRect((int) x, (int) y, (int) Game.scaleX(16), (int) Game.scaleY(16));
+		if (this.img != null) {
+			g.drawImage(img, (int) this.x, (int) this.y, 20,20, null);
+		} else {
+			g.setColor(Color.green);
+			g.fillRect((int) x, (int) y, (int) Game.scaleX(16), (int) Game.scaleY(16));
+		}
 
 	}
 

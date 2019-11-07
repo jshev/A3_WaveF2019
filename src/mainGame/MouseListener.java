@@ -25,13 +25,14 @@ public class MouseListener extends MouseAdapter {
 	private UpgradeScreen upgradeScreen;
 	private Upgrades upgrades;
 	private Player player;
+	private EnemyImageHolder enemyImageHolder;
 	private String upgradeText;
 	private String customSurvival;
 	private String customWaves;
 	private STATE nextState;
 
 	public MouseListener(Game game, Handler handler, HUD hud, Spawn1to10 spawner, Spawn10to20 spawner2,
-			UpgradeScreen upgradeScreen, Player player, Upgrades upgrades) {
+			UpgradeScreen upgradeScreen, Player player, Upgrades upgrades, EnemyImageHolder enemyImageHolder) {
 		this.game = game;
 		this.handler = handler;
 		this.hud = hud;
@@ -41,6 +42,8 @@ public class MouseListener extends MouseAdapter {
 		this.player = player;
 		this.upgrades = upgrades;
 		this.nextState = null;
+		this.enemyImageHolder = enemyImageHolder;
+		
 
 	}
 
@@ -172,12 +175,15 @@ public class MouseListener extends MouseAdapter {
 		else if (game.gameState == STATE.Customization) {
 			if(mouseOver(mx,my, 300, 350, 300, 300)) {
 				player.setImgNum(1);
+				enemyImageHolder.updateImg(1);
 
 			} else if(mouseOver(mx,my, 850, 350, 300, 300)) {
 				player.setImgNum(2);
+				enemyImageHolder.updateImg(2);
 
 			} else if(mouseOver(mx,my, 1400, 350, 300, 300)) {
 				player.setImgNum(3);
+				enemyImageHolder.updateImg(3);
 
 			}
 			player.updateImg();
