@@ -30,7 +30,7 @@ public class Sound {
 	public static void playSoundWaves() {
 		// Try catch audio
 		try {
-			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("Sound.wav"));
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("Waves.wav"));
 			clip = AudioSystem.getClip();
 			clip.open(audioInputStream);
 			FloatControl gainControl = (FloatControl) clip2.getControl(FloatControl.Type.MASTER_GAIN);
@@ -54,7 +54,7 @@ public class Sound {
 	// Method for the MenuSound
 	public static void playSoundMenu() {
 		try {
-			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("MenuTheme.wav"));
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("Menu.wav"));
 			clip2 = AudioSystem.getClip();
 			clip2.open(audioInputStream);
 			// adjusts the volume of the sound
@@ -80,7 +80,7 @@ public class Sound {
 	//Survival Game mode theme
 	public static void playSoundSurvival() {
 		try {
-			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("SurvivalTheme.wav"));
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("Survival.wav"));
 			clip2 = AudioSystem.getClip();
 			clip2.open(audioInputStream);
 			// adjusts the volume of the sound
