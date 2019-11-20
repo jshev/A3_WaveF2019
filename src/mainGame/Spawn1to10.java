@@ -164,7 +164,7 @@ public class Spawn1to10 {
 		} else if (levelNumber == 3) {
 			levelTimer--;
 		
-			levelString.setString("Ghost Watch Out!");
+			levelString.setString("It's King Boo Watch out!");
 			if (tempCounter < 1) {
 				handler.addObject(new EnemyBossGhost(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), -5, ID.EnemyBossGhost, handler));
 				levelTimer = 1300;
