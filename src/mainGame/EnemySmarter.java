@@ -9,6 +9,7 @@ import java.util.Random;
  * A type of enemy in the game
  * 
  * @author Brandon Loehle 5/30/16
+ * Documentation 11/20/19
  *
  */
 
@@ -20,6 +21,9 @@ public class EnemySmarter extends GameObject {
 	private int tickCount;
 	private Random r = new Random();
 
+	/**
+	 * This method creates the enemy and how fast it is.
+	 */
 	public EnemySmarter(double x, double y, int speed, ID id, Handler handler) {
 		super(x, y, id);
 		this.handler = handler;
@@ -32,6 +36,11 @@ public class EnemySmarter extends GameObject {
 
 	}
 
+	/**
+	 * Constantly ticking (used for updating smoothly). Used for updating the
+	 * instance variables (DATA) of each entity (location, health,
+	 * appearance, etc).
+	 */
 	public void tick() {
 		this.x += velX;
 		this.y += velY;
@@ -58,6 +67,9 @@ public class EnemySmarter extends GameObject {
 		}
 	}
 
+	/**
+	 * This method creates/draws the enemy smarter.
+	 */
 	public void render(Graphics g) {
 		Color purple = new Color(148,0,211);
 		g.setColor(purple);
@@ -65,6 +77,9 @@ public class EnemySmarter extends GameObject {
 
 	}
 
+	/**
+	 * This method creates the rectangle trail of the enemies.
+	 */
 	@Override
 	public Rectangle getBounds() {
 		return new Rectangle((int) this.x, (int) this.y, (int) Game.scaleX(32), (int) Game.scaleY(32));

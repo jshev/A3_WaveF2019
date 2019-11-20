@@ -23,6 +23,7 @@ import mainGame.Game.STATE;
  * The main menu
  * 
  * @author Brandon Loehle 5/30/16
+ * Documentation 11/20/19
  *
  */
 
@@ -38,6 +39,9 @@ public class Menu {
 	private int colorIndex;
 	private Spawn1to10 spawner;
 
+	/**
+	 * This method creates the menu.
+	 */
 	public Menu(Game game, Handler handler, HUD hud, Spawn1to10 spawner) {
 		this.game = game;
 		this.handler = handler;
@@ -83,6 +87,9 @@ public class Menu {
 		handler.tick();
 	}
 
+	/**
+	 * This method creates/draws the text on the menu screen and sets its location.
+	 */
 	public void render(Graphics g) {
 		if (game.gameState == STATE.Menu) {
 			g.drawImage(img, 0, 0, Game.WIDTH, Game.HEIGHT, null);
@@ -112,6 +119,9 @@ public class Menu {
 		}
 	}
 
+	/**
+	 * This method draws the menu items and sets its location and dimensions.
+	 */
 	private void drawMenuItem(Graphics g, Font font, Color color, 
 		int[] dimensions, String text, int[] textPos) {
 		g.setFont(font);
@@ -124,6 +134,9 @@ public class Menu {
 		drawMenuString(g, font, color, text, textPos);
 	}
 
+	/**
+	 * This method draws the menu strings and sets its location and dimensions.
+	 */
 	private void drawMenuString(Graphics g, Font font, Color color,
 		String text, int[] textPos) {
 		g.setFont(font);
