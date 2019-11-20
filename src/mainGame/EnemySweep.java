@@ -17,6 +17,9 @@ public class EnemySweep extends GameObject {
 	private Handler handler;
 	private Image img = null;
 
+	/**
+	 * This method creates the enemy.
+	 */
 	public EnemySweep(double x, double y, double velX, double velY, ID id, Handler handler) {
 		super(x, y, id);
 		this.handler = handler;
@@ -24,7 +27,10 @@ public class EnemySweep extends GameObject {
 		this.velY = velY;
 		this.checkForImage();
 	}
-	
+
+	/**
+	 * This method looks to see if there is an image for the enemy.
+	 */
 	private void checkForImage() {
 		Image image = this.handler.getEnemyImage();
 		if (image != null) {
@@ -32,6 +38,11 @@ public class EnemySweep extends GameObject {
 		}
 	}
 
+	/**
+	 * Constantly ticking (used for updating smoothly). Used for updating the
+	 * instance variables (DATA) of each entity (location, health,
+	 * appearance, etc).
+	 */
 	public void tick() {
 		this.x += velX;
 		this.y += velY;
@@ -59,6 +70,9 @@ public class EnemySweep extends GameObject {
 	
 	}
 
+	/**
+	 * This method creates/draws the enemy sweep.
+	 */
 	public void render(Graphics g) {
 		if (this.img != null) {
 			g.clearRect((int) x, (int) y, (int) Game.scaleX(16), (int) Game.scaleY(16));
@@ -69,6 +83,9 @@ public class EnemySweep extends GameObject {
 		}
 	}
 
+	/**
+	 * This method creates the rectangle trail of the enemies.
+	 */
 	@Override
 	public Rectangle getBounds() {
 		return new Rectangle((int) this.x, (int) this.y, (int) Game.scaleX(16), (int) Game.scaleY(16));

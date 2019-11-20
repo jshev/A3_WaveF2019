@@ -7,6 +7,7 @@ import java.awt.Rectangle;
  * Every object in the game extends this abstract class
  * Power-ups
  * @author Brandon Loehle 5/30/16
+ * Documentation 11/20/19
  *
  */
 
@@ -20,6 +21,9 @@ public abstract class GameObject {
 	protected boolean isMoving;
 	protected int health;
 
+	/**
+	 * This method creates the game objects.
+	 */
 	public GameObject(double x, double y, ID id) {
 		this.x = x;
 		this.y = y;

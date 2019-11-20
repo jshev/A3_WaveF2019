@@ -23,6 +23,7 @@ import mainGame.Game.STATE;
  * The main menu
  * 
  * @author Brandon Loehle 5/30/16
+ * Documentation 11/20/19
  *
  */
 
@@ -39,6 +40,9 @@ public class Leaderboard {
 	private Spawn1to10 spawner;
 	private Score score;
 
+	/**
+	 * This method creates the leaderboard.
+	 */
 	public Leaderboard(Game game, Handler handler, HUD hud, Spawn1to10 spawner) {
 		this.game = game;
 		this.handler = handler;
@@ -52,7 +56,7 @@ public class Leaderboard {
 
 		img = null;
 		try {
-			URL imageURL = Game.class.getResource("images/LeaderBoard.png");
+			URL imageURL = Game.class.getResource("images/LeaderBoard.png"); //leaderboard image
 			img = Toolkit.getDefaultToolkit().getImage(imageURL);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -77,6 +81,9 @@ public class Leaderboard {
 		handler.tick();
 	}
 
+	/**
+	 * This method creates/draws the Leaderboard text.
+	 */
 	public void render(Graphics g) {
 		
 			handler.render(g);
@@ -98,6 +105,9 @@ public class Leaderboard {
 			}
 	}
 
+	/**
+	 * This method creates/draws the items in the leaderboard menu.
+	 */
 	private void drawMenuItem(Graphics g, Font font, Color color, 
 		int[] dimensions, String text, int[] textPos) {
 		g.setFont(font);
@@ -110,6 +120,9 @@ public class Leaderboard {
 		drawMenuString(g, font, color, text, textPos);
 	}
 
+	/**
+	 * This method creates/draws the strings in the leaderboard menu.
+	 */
 	private void drawMenuString(Graphics g, Font font, Color color,
 		String text, int[] textPos) {
 		g.setFont(font);

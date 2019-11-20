@@ -9,6 +9,7 @@ import mainGame.Game.STATE;
  * Handles key input from the user
  * 
  * @author Brandon Loehle 5/30/16
+ * Documentation 11/20/19
  *
  */
 
@@ -55,7 +56,7 @@ public class KeyInput extends KeyAdapter {
 			game.gameState = STATE.Menu;
 		}
 		if(game.gameState == STATE.GameOver || game.isPaused()){
-			if(key == KeyEvent.VK_H){
+			if(key == KeyEvent.VK_H){ //go back to the menu when h is pressed
 				game.gameState = STATE.Menu;
 				handler.object.clear();
 				hud.setLevel(1);
@@ -144,11 +145,11 @@ public class KeyInput extends KeyAdapter {
 					keyDown[0] = true;
 				}
 
-				if ((key == KeyEvent.VK_SPACE) && game.gameState == Game.STATE.Game) {
+				if ((key == KeyEvent.VK_SPACE) && game.gameState == Game.STATE.Game) { //skip levels when space is pressed
 					upgrades.levelSkipAbility();
 				}
 
-				if (key == KeyEvent.VK_ENTER) {
+				if (key == KeyEvent.VK_ENTER) { //use abilities when enter is pressed
 					Ability curability = player.getAbility();
 					if (curability.equals(Ability.ClearScreen)) {
 						upgrades.clearScreenAbility();
@@ -163,7 +164,7 @@ public class KeyInput extends KeyAdapter {
 					
 				}
 				
-				if(key == KeyEvent.VK_P) {
+				if(key == KeyEvent.VK_P) { //pause the game when p is pressed
 					if(!game.isPaused()) {
 						game.previousGameState = game.gameState;
 						game.gameState=STATE.PauseMenu;
