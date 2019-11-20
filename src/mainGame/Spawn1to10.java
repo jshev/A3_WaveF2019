@@ -85,7 +85,7 @@ public class Spawn1to10 {
 			handler.addObject(new Coin(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.Coin, handler));
 		}
 		
-		if (levelNumber == 1) {
+		if (levelNumber == 1) { // used to be level 7
 			levelTimer--;
 	
 			if (tempCounter < 1) {

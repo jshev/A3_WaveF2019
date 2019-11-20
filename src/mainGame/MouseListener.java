@@ -112,7 +112,6 @@ public class MouseListener extends MouseAdapter {
 			// Waves Button
 			if (mouseOver(mx, my, 805, 545, 300, 55)) {
 				game.gameState = STATE.Customization;
-				new DifficultyWindow(this);
 			}
 
 			// Survival Button
@@ -200,7 +199,8 @@ public class MouseListener extends MouseAdapter {
 				Sound.stopSoundMenu();
 				Sound.playSoundSurvival();
 			} else {
-				game.gameState = STATE.Menu;
+//				game.gameState = STATE.Menu;
+				new DifficultyWindow(this);
 			}
 		}
 	}
