@@ -6,15 +6,18 @@ import java.awt.Toolkit;
 import java.net.URL;
 
 public class EnemyImageHolder {
-	
+
+	//instance variables
 	private int imgNum;
 	private Image img;	
 	private Handler handler;
 
+	//calls the handle class
 	public EnemyImageHolder(Handler handler) {
 		this.handler = handler;
 	}
-	
+
+	//updates the images of the enemies
 	public void updateImg(int num) {
 		if(num!=0) {
 			String newURL;

@@ -14,6 +14,7 @@ import java.awt.Rectangle;
 
 public class EnemyRaindrop extends GameObject {
 
+	//instance variables
 	private Handler handler;
 	private GameObject player;
 	private Image img = null;
@@ -33,7 +34,7 @@ public class EnemyRaindrop extends GameObject {
 			this.x = player.getX(); // overrides the position set in the spawn class so that it spawns on top of the player
 		}
 	}
-	
+	//see if the image is in the file
 	private void checkForImage() {
 		Image image = this.handler.getEnemyImage();
 		if (image != null) {
@@ -49,6 +50,7 @@ public class EnemyRaindrop extends GameObject {
 		}
 	}
 
+	//makes the image show up on the screen
 	public void render(Graphics g) {
 		if (this.img != null) {
 			g.drawImage(img, (int) this.x-25, (int) this.y-25, 50,50, null);

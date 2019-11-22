@@ -13,8 +13,10 @@ import java.awt.Rectangle;
 
 public class EnemyFast extends GameObject {
 
+	//instance variable
 	private Handler handler;
 
+	//calls the with and high of the objects and sets it to a certain number
 	public EnemyFast(double x, double y, ID id, Handler handler) {
 		super(x, y, id);
 		this.handler = handler;
@@ -37,6 +39,7 @@ public class EnemyFast extends GameObject {
 
 	}
 
+	//calls the image on the screen while making it a color
 	public void render(Graphics g) {
 		g.setColor(Color.cyan);
 		g.fillRect((int) x, (int) y, (int) Game.scaleX(16), (int) Game.scaleY(16));

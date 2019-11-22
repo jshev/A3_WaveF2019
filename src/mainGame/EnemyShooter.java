@@ -13,6 +13,7 @@ import java.awt.Rectangle;
 
 public class EnemyShooter extends GameObject {
 
+	//instance variable
 	private Handler handler;
 	private int sizeX;
 	private int sizeY;
@@ -22,6 +23,7 @@ public class EnemyShooter extends GameObject {
 	private double bulletVelY;
 	private int bulletSpeed;
 
+	//calls the handller, timer, speed and height and width of the enemyshooter
 	public EnemyShooter(double x, double y, int sizeX, int sizeY, int bulletSpeed, ID id, Handler handler) {
 		super(x, y, id);
 		this.handler = handler;
@@ -60,6 +62,7 @@ public class EnemyShooter extends GameObject {
 
 	}
 
+	//tells the enemy where to shoot depending on the players location
 	public void shoot() {
 		double diffX = this.x - player.getX() - Game.scaleX(16);
 		double diffY = this.y - player.getY() - Game.scaleX(16);
@@ -74,6 +77,7 @@ public class EnemyShooter extends GameObject {
 				new EnemyShooterBullet(this.x, this.y, bulletVelX, bulletVelY, ID.EnemyShooterBullet, this.handler));
 	}
 
+	//ipdates the enemys location
 	public void updateEnemy() {
 		this.sizeX--;
 		this.sizeY--;
@@ -83,6 +87,7 @@ public class EnemyShooter extends GameObject {
 		}
 	}
 
+	//makes the object show on the screen
 	public void render(Graphics g) {
 		g.setColor(Color.yellow);
 		g.fillRect((int) x, (int) y, (int) Game.scaleX(100), (int) Game.scaleY(100));

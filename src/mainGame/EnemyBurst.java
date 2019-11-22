@@ -14,6 +14,7 @@ import java.util.Random;
 
 public class EnemyBurst extends GameObject {
 
+	//instance variables
 	private Handler handler;
 	private int timer;
 	private int size;
@@ -21,6 +22,7 @@ public class EnemyBurst extends GameObject {
 	private boolean isMoving = false;
 	private Random r = new Random();
 
+	//sets the location, width and size of the enemby burst
 	public EnemyBurst(double x, double y, double velX, double velY, int size, String side, ID id, Handler handler) {
 		super(x, y, id);
 		this.handler = handler;
@@ -33,6 +35,7 @@ public class EnemyBurst extends GameObject {
 		setVel();
 	}
 
+	//how the burst is going to work
 	public void tick() {
 		if (isMoving == false) {
 			isMoving = true;
@@ -64,6 +67,7 @@ public class EnemyBurst extends GameObject {
 
 		handler.addObject(new Trail(x, y, ID.Trail, Color.orange, this.size, this.size, 0.025, this.handler));
 
+		//timer for the burst
 		timer--;
 		if (timer <= 0) {
 			this.x += velX;
@@ -84,6 +88,7 @@ public class EnemyBurst extends GameObject {
 		}
 	}
 
+	//sets the size of the burst when it goes left, right, top, or bottom of the screen
 	public void setPos() {
 		if (this.side.equals("left")) {
 			this.x = -(size);
@@ -119,6 +124,7 @@ public class EnemyBurst extends GameObject {
 		}
 	}
 
+	//makes the burst appear on the screen
 	public void render(Graphics g) {
 		g.setColor(Color.orange);
 		g.fillRect((int) x, (int) y, this.size, this.size);

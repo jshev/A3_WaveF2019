@@ -13,9 +13,11 @@ import java.awt.Rectangle;
 
 public class EnemyCircle extends GameObject {
 
+	//instance variabels
 	private Handler handler;
 	private int size;
 
+	//sets the loction, width, height and size of the enemy circle
 	public EnemyCircle(double x, double y, int velX, int velY, ID id, Handler handler) {
 		super(x, y, id);
 		this.handler = handler;
@@ -24,6 +26,7 @@ public class EnemyCircle extends GameObject {
 		size = 20;
 	}
 
+	//determians how long its going to be on the screen for and then removes it
 	public void tick() {
 		this.x += velX;
 		this.y += velY;
@@ -43,6 +46,7 @@ public class EnemyCircle extends GameObject {
 		}
 	}
 
+	//has the image show on the screen
 	public void render(Graphics g) {
 		g.setColor(Color.red);
 		g.fillOval((int) x, (int) y, (int) Game.scaleX(size), (int) Game.scaleY(size));

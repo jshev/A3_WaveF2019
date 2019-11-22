@@ -277,7 +277,7 @@ public class Game extends Canvas implements Runnable {
 		} else if (gameState == STATE.Survival) {
 				pauseMenu.removePrompt();
 				survivalHud.render(g);
-			player.render(g);
+			//player.render(g);
 		} else if (gameState == STATE.Menu || gameState == STATE.Help) { // user is in help or the menu, draw the menu
 																			// and help objects
 			menu.render(g);

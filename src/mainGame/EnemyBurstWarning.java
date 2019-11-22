@@ -13,6 +13,7 @@ import java.awt.Rectangle;
 
 public class EnemyBurstWarning extends GameObject {
 
+	//instance variables
 	private Handler handler;
 	private int width;
 	private int height;
@@ -20,6 +21,7 @@ public class EnemyBurstWarning extends GameObject {
 	private Color color;
 	private int hasFlashed;
 
+	//sets the location, time, and color of the burst
 	public EnemyBurstWarning(double x, double y, int width, int height, ID id, Handler handler) {
 		super(x, y, id);
 		this.handler = handler;
@@ -36,6 +38,7 @@ public class EnemyBurstWarning extends GameObject {
 		checkFlash();
 	}
 
+	//sets the color of the flash of burst warning
 	public void flash() {
 		timer--;
 		if (timer == 5) {
@@ -48,6 +51,7 @@ public class EnemyBurstWarning extends GameObject {
 
 	}
 
+	//removes the flash once it has been processed
 	public void checkFlash() {
 		if (this.hasFlashed == 5) {
 			for (int i = 0; i < handler.object.size(); i++) {
@@ -60,6 +64,7 @@ public class EnemyBurstWarning extends GameObject {
 		}
 	}
 
+	//makes the warning show up
 	public void render(Graphics g) {
 		g.setColor(this.color);
 		g.fillRect((int) x, (int) y, this.width, this.height);

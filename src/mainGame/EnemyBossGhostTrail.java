@@ -8,6 +8,7 @@ public class EnemyBossGhostTrail extends GameObject {
 
 	private Handler handler;
 
+	//sets the location and scaling of the trail on the enemies
 	public EnemyBossGhostTrail(double x, double y, double velX, double velY, ID id, Handler handler) {
 		super(x, y, id);
 		this.x = x; // Same as with the trails: ignore scaling of GameObjects.
@@ -26,6 +27,7 @@ public class EnemyBossGhostTrail extends GameObject {
 		removeBullets();
 	}
 
+	//removes the bullets
 	public void removeBullets() {
 
 		for (int i = 0; i < handler.object.size(); i++) {
@@ -42,11 +44,13 @@ public class EnemyBossGhostTrail extends GameObject {
 		}
 	}
 
+	//sets the trail on the screen
 	public void render(Graphics g) {
 		g.setColor(Color.red);
 		g.fillRect((int) x, (int) y, 4, 4);
 	}
 
+	//randomized the color of the trails
 	private static String createRandomColor() {
 		  int R = (int)(Math.random()*256);
 		  int G = (int)(Math.random()*256);

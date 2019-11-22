@@ -18,7 +18,7 @@ public class EnemyBossBullet extends GameObject {
 	Random r = new Random();
 	private int max = 15;
 	private int min = -15;
-
+//sets the location and where the bullets spawn
 	public EnemyBossBullet(double x, double y, ID id, Handler handler) {
 		super(x, y, id);
 		this.x = x;
@@ -41,12 +41,12 @@ public class EnemyBossBullet extends GameObject {
 		handler.addObject(new Trail(x, y, ID.Trail, Color.red, 16, 16, 0.025, this.handler));
 
 	}
-
+// Makes the bullets on the screen appear
 	public void render(Graphics g) {
 		g.setColor(Color.red);
 		g.fillRect((int) x, (int) y, 16, 16);
 	}
-
+//gets the location of the bullets
 	@Override
 	public Rectangle getBounds() {
 		return new Rectangle((int) this.x, (int) this.y, 16, 16);

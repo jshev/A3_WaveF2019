@@ -28,6 +28,7 @@ public class EnemyBossGhost extends GameObject {
 	private double bulletVelX;
 	private double bulletVelY;
 
+	//sets the sleep, width and high, and the ID for the ghost boss
 	public EnemyBossGhost(double x, double y, int speed, ID id, Handler handler) {
 		super(x, y, id);
 		this.handler = handler;
