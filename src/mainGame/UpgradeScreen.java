@@ -20,6 +20,7 @@ import mainGame.Game.STATE;
  * rest of the game. A user cannot choose the same upgrade twice
  * 
  * @author Brandon Loehle 5/30/16
+ * Documenatation 11/21/19
  *
  */
 
@@ -60,6 +61,7 @@ public class UpgradeScreen {
 
 	}
 
+	//Allows Upgrade Screen to show up
 	public void render(Graphics g) {
 		Font font = new Font("Amoebic", 1, (int) Game.scaleY(175));
 		if(game.isExtreme()) {

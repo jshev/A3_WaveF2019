@@ -9,9 +9,10 @@ import javax.swing.JOptionPane;
 import mainGame.Game.STATE;
 
 /**
- * Handles all mouse input
+ * Handles all mouse input.
  * 
  * @author Brandon Loehle 5/30/16
+ * Documentation 11/19/19
  *
  */
 
@@ -47,12 +48,14 @@ public class MouseListener extends MouseAdapter {
 
 	}
 
+	//Checks which area was clicked to determine what state the game is in and what will show up on the screen.
 	public void mousePressed(MouseEvent e) {
 		int mx = e.getX();
 		int my = e.getY();
 
 		if (game.gameState == STATE.GameOver) {
 
+			//Resets the game based on what was played previously.
 			if (game.previousGameState == STATE.Game) {
 				handler.object.clear();
 				upgrades.resetUpgrades();
@@ -79,6 +82,7 @@ public class MouseListener extends MouseAdapter {
 
 		}
 
+		//Checks if an upgrade option is being used.
 		else if (game.gameState == STATE.Upgrade) {
 			if (mouseOver(mx, my, 100, 300, 1721, 174)) {
 				upgradeText = upgradeScreen.getPath(1);
@@ -110,12 +114,14 @@ public class MouseListener extends MouseAdapter {
 
 		else if (game.gameState == STATE.Menu) {
 			// Waves Button
+			// Clicking Waves mode will bring you into the customization menu and then into the game.
 			if (mouseOver(mx, my, 805, 545, 300, 55)) {
 				game.gameState = STATE.Customization;
 				new DifficultyWindow(this);
 			}
 
 			// Survival Button
+			// Clicking Survival mode will bring you into the customization menu and then into the game.
 			if (mouseOver(mx, my, 805, 610, 300, 55)) {
 				game.gameState = STATE.Customization;
 				nextState = STATE.Survival;
@@ -172,21 +178,24 @@ public class MouseListener extends MouseAdapter {
 		}
 		
 		// Customization Options
+		// Sets the character based on what was chosen.
 		else if (game.gameState == STATE.Customization) {
 			if(mouseOver(mx,my, 300, 350, 300, 300)) {
-				player.setImgNum(1);
+				player.setImgNum(1); //Mario
 				enemyImageHolder.updateImg(1);
 
 			} else if(mouseOver(mx,my, 850, 350, 300, 300)) {
-				player.setImgNum(2);
+				player.setImgNum(2); //Peach
 				enemyImageHolder.updateImg(2);
 
 			} else if(mouseOver(mx,my, 1400, 350, 300, 300)) {
-				player.setImgNum(3);
+				player.setImgNum(3); //Luigi
 				enemyImageHolder.updateImg(3);
 
 			}
 			player.updateImg();
+
+			//Goes into the game after a character is chosen
 			if (nextState == STATE.Survival){
 				nextState = null;
 				game.gameState = STATE.Survival;

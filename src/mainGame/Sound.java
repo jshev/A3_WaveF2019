@@ -5,6 +5,7 @@ package mainGame;
  * This class creates sound for the game
  * Implemented in the Game class
  * Ashley M.
+ * Documentation 11/19/19
  */
 
 import javax.sound.sampled.AudioInputStream;
@@ -77,7 +78,7 @@ public class Sound {
 		
 	}
 
-	//Survival Game mode theme
+	//Survival Game mode theme sound
 	public static void playSoundSurvival() {
 		try {
 			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("Survival.wav"));

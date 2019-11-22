@@ -1,5 +1,7 @@
 package mainGame;
 
+//Documentation 11/21/19
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
@@ -31,6 +33,7 @@ public class Survival {
 		enemyWaitingList = new LinkedList<GameObject>();
 	}
 	
+	//Initializes the game starts
 	public void initialize() {
 		spawnTimer = 600;
 		levelTimer = 590;
@@ -56,6 +59,7 @@ public class Survival {
 		scoreText.setText("Score: " + score);
 	}
 	*/
+	//Sets times when enemies spawn
 	private void incrementTimer() {
 		hud.setDifficulty((int) difficulty);
 		levelTimer++;
@@ -86,12 +90,14 @@ public class Survival {
 		handler.addObject(createdEnemies.peekLast());
 	}
 	
+	//Log of timing of enemy spawning
 	private void logToConsole() {
 		System.out.println("Level Timer: " + levelTimer);
 		System.out.println("Spawn Timer: " + spawnTimer);
 		System.out.println(enemyWaitingList.toString());
 	}
 	
+	//Removes enemy
 	private void removeEnemy() {
 	    hud.setScore((int) (hud.getScore() + (difficulty * factory.getScoreFactor(createdEnemies.peekFirst().id))));
 		handler.removeObject(createdEnemies.removeFirst());
@@ -105,6 +111,7 @@ public class Survival {
 		this.score = score;
 	}
 
+	//Holds all the enemy styles and how many spawn
 	private class EnemyFactory {
 		private Handler handler;
 		private LinkedList<Integer> recentSpawns;
@@ -147,6 +154,7 @@ public class Survival {
 			populateLists();
 		}
 		
+		//Selects and creates and enemy to spawn
 		public GameObject selectEnemy() {
 			enemyType = r.nextInt(enemyIDs.size());
 			while (recentSpawns.contains(enemyType)) {
@@ -155,7 +163,8 @@ public class Survival {
 			return createEnemy(enemyType);
 		}
 		
-		
+
+		//Involves the creation of each different type of enemy
 		public GameObject createEnemy(int enemyType) {
 			/*
 			 * 0 = EnemyBasic
@@ -242,6 +251,7 @@ public class Survival {
 			}
 		}
 		
+		//Generates the enemy that will spawn
 		public ArrayList<GameObject> generateEnemy() {
 			GameObject spawnedEnemy = selectEnemy();
 			handler.addObject(spawnedEnemy);
@@ -254,6 +264,7 @@ public class Survival {
 			return spawnedEnemies;
 		}
 		
+		//Lists each enemy and the spawn count
 		private void populateLists() {
 			enemyIDs.add(ID.EnemyBasic);
 			enemySpawnCounts.add(enemyBasicSpawnCount);
@@ -284,6 +295,7 @@ public class Survival {
 			enemyScoreFactors.add(enemyRaindropScoreFactor);
 		}
 		
+		//Sets the position the enemy will spawn
 		private void setSpawnPosition() {
 			playerPosition[0] = (int) player.getX(); 
 			playerPosition[1] = (int) player.getY();
@@ -310,6 +322,7 @@ public class Survival {
 			difficulty += amount;
 		}
 		
+		//Records the recently spawned enemies
 		private void addToRecent(int spawnedEnemy) {
 			recentSpawns.add(spawnedEnemy);
 			recentSpawns.removeLast();

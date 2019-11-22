@@ -8,6 +8,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/*
+ Documentation 11/19/19
+ */
+
 public class Score{
 	private int [] scores;
 	private String [] names;
@@ -28,6 +32,7 @@ public class Score{
 		return names;
 	}
 	
+	//Loads game score
 	public void loadScores(){
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(saveFile));
@@ -70,6 +75,7 @@ public class Score{
 		}
 	}
 	
+	//Adds score to existing score
 	public void addScore(int score, String name){
 		
 		loadScores();
@@ -91,7 +97,7 @@ public class Score{
 	}
 		//check to see if score is in top 5
 	
-	
+	//Saves the game score
 	private void saveScores(){
 		try {
 			BufferedWriter fw = new BufferedWriter(new FileWriter(saveFile));

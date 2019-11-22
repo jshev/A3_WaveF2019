@@ -6,6 +6,7 @@ import mainGame.Player.Ability;
  * The upgrades that a user can have (they modify the game for the user)
  * 
  * @author Brandon Loehle 5/30/16
+ * Documenation 11/21/19
  *
  */
 
@@ -56,6 +57,7 @@ public class Upgrades {
 		player.setDamage(1);
 	}
 
+	//Skips levels
 	public void levelSkipAbility() {
 		handler.clearEnemies();
 		hud.setLevel(hud.getLevel() + 1);
@@ -70,6 +72,7 @@ public class Upgrades {
 		}
 	}
 
+	//Freezes game time
 	public void freezeTimeAbility() {
 		handler.pause();
 		player.decrementAbilityUses();
@@ -155,6 +158,7 @@ public class Upgrades {
 	}
 	
 
+	//Resets all upgrades
 	public void resetUpgrades() {
 		hud.resetHealth();
 		hud.setExtraLives(0);

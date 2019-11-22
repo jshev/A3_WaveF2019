@@ -9,6 +9,7 @@ import java.util.ArrayList;
  * The main Heads Up Display of the game
  * 
  * @author Brandon Loehle 5/30/16
+ * Documentation 11/21/19
  *
  */
 
@@ -21,6 +22,7 @@ public class SurvivalHUD extends HUD{
 
 	
 
+	//Extension of HUD in the Survival game mode
 	public SurvivalHUD() {
 		font = new Font("Amoebic", 1, 30);
 		HUDBackground = new HUDRectangle(0, 0, 

@@ -6,9 +6,10 @@ import java.awt.Rectangle;
 import java.util.Random;
 
 /**
- * The graphics behind the menu that resemble fireworks
+ * The graphics behind the menu that resemble fireworks.
  * 
  * @author Brandon Loehle 5/30/16
+ * Documentation 11/19/19
  *
  */
 
@@ -26,6 +27,7 @@ public class MenuFireworks extends GameObject {
 	private int min = -5;
 	private Color color;
 
+	//Determines the size of the fireworks
 	public MenuFireworks(double x, double y, int sizeX, int sizeY, double velX, double velY, Color color, ID id,
 			Handler handler) {
 		super(x, y, id);
@@ -41,11 +43,13 @@ public class MenuFireworks extends GameObject {
 
 	}
 
+	//Sets the color of each firework
 	public void render(Graphics g) {
 		g.setColor(this.color);
 		g.fillOval((int) this.x, (int) this.y, sizeX, sizeY);
 	}
 
+	//Sets up when the firework sparks
 	public void tick() {
 		this.x += velX;
 		this.y += velY;
@@ -66,6 +70,7 @@ public class MenuFireworks extends GameObject {
 
 	}
 
+	//The sizing of the sparks
 	public void sparks(GameObject tempObject) {// when the big circle breaks into a bunch of smaller ones
 		for (int ii = 0; ii < 3; ii++) {
 			handler.addObject(new MenuFireworks(this.x, this.y, 20, 20, (r.nextInt((max - min) + 1) + min), -5,

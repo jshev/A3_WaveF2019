@@ -17,6 +17,7 @@ import mainGame.Game.STATE;
  * The main player in the game
  * 
  * @author Brandon Loehle 5/30/16
+ * Documentation 11/19/19
  *
  */
 
@@ -78,6 +79,7 @@ public class Player extends GameObject {
 		playerHeight = 32;
 		imgNum = 0;
 	}
+	//Updates the chosen player and player trail
 	public void updateImg() {
 		if(imgNum!=0) {
 			String newURL;
@@ -122,6 +124,7 @@ public class Player extends GameObject {
 	}
 
 
+	//Begins the game
 	public void initialize() {
 		switch (game.gameState) {
 			case Game:
@@ -198,6 +201,7 @@ public class Player extends GameObject {
 	public void checkIfDead() {
 		if (health <= 0) {// player is dead, game over!
 			
+			//Checks if Survival game is over
 			if (extraLives == 0 && game.gameState == STATE.Survival) {
 				
 				game.previousGameState = game.gameState;
@@ -206,7 +210,8 @@ public class Player extends GameObject {
 				Sound.stopSoundSurvival();
 				Sound.playSoundOver();
 			}
-			
+
+			//Checks if Waves game is over
 			if (extraLives == 0 && game.gameState == STATE.Game ) {
 				
 				game.previousGameState = game.gameState;
@@ -279,6 +284,7 @@ public class Player extends GameObject {
 				}
 			}
 			
+			//Involves collection of coins
 			if (tempObject.getId() == ID.Coin) {
 				if (getBounds().intersects(tempObject.getBounds())) {// player collected a coin
 					hud.updateScoreColor(Color.green);
@@ -309,6 +315,7 @@ public class Player extends GameObject {
 	@Override
 	public void render(Graphics g) {
 
+		//Player appearance on screen
 		g.setColor(playerColor);
 		if(imgNum!=0) {
 			g.clearRect((int) x, (int) y, (int) Game.scaleX(playerWidth), (int) Game.scaleY(playerHeight));
@@ -364,6 +371,8 @@ public class Player extends GameObject {
 	public void activateReducedSize() {
 		setPlayerSize(reducedPlayerSize);
 	}
+
+	//Getter and setter methods regarding things pertaining to the player
 
 	public void setDamage(int damage) {
 		this.damage = damage;

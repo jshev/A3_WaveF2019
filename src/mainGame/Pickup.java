@@ -11,6 +11,7 @@ import java.net.URL;
  * boost, speed boost, etc...
  * 
  * @author Brandon Loehle 5/30/16
+ * Documentation 11/19/19
  *
  */
 
@@ -31,6 +32,7 @@ public abstract class Pickup {
 
 	}
 
+	//Sets image
 	public Image setImg(String path) {
 		Image img = null;
 		try {
@@ -44,9 +46,12 @@ public abstract class Pickup {
 
 	public abstract void tick();
 
+	//Allows graphics to be on screen
 	public abstract void render(Graphics g);
 
 	public abstract Rectangle getBounds();
+
+	//Getter and setter methods for each variable
 
 	public double getX() {
 		return x;

@@ -6,6 +6,8 @@ import java.net.URL;
 
 import mainGame.Game.STATE;
 
+// Handles pausing during the game.
+
 public class PauseMenu {
 	private Game game;
 	private Handler handler;
@@ -19,6 +21,7 @@ public class PauseMenu {
 		this.handler = handler;
 		this.hud = hud;
 		tempCounter = 0;
+		//Description when paused
 		pausePrompt = new LevelText(Game.WIDTH / 2 - 675, Game.HEIGHT / 2 - 200, "Press P to resume",
 				ID.Levels1to10Text);
 		ReturntoMenuPrompt=new LevelText(Game.WIDTH / 2 - 200, Game.HEIGHT / 2 + 100, "Press H To Return To Menu",
@@ -35,6 +38,7 @@ public class PauseMenu {
 		handler.tick();
 	}
 
+	//When screen of pause menu shows up
 	public void render(Graphics g) {
 		if (game.gameState==STATE.PauseMenu) {
 			if (tempCounter < 1) {
@@ -46,6 +50,7 @@ public class PauseMenu {
 		}
 	}
 	
+	//To resume or go back to the menu
 	public void removePrompt() {
 		handler.removeObject(pausePrompt);
 		handler.removeObject(ReturntoMenuPrompt);

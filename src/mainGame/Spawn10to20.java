@@ -10,6 +10,7 @@ import mainGame.Game.STATE;
  * documentation
  * 
  * @author Brandon Loehle 5/30/16
+ * Documentation 11/21/19
  *
  */
 
@@ -60,6 +61,7 @@ public class Spawn10to20 {
 			levels.add(i);
 		}
 	}
+	//Goes through enabling levels 10 through 20, getting increasingly difficult
 	public void enableHardMode() {
 		hardmode = true;
 	}

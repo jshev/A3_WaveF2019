@@ -10,6 +10,7 @@ import mainGame.Game.STATE;
  * Contains the programming of levels 1-10, as well as handles level progression
  * 
  * @author Brandon Loehle 5/30/16
+ * Documentation 11/19/19
  */
 
 public class Spawn1to10 {
@@ -35,6 +36,7 @@ public class Spawn1to10 {
 
 	private boolean hardmode = false;
 
+	//Spawns levels 1 through 10
 	public Spawn1to10(Handler handler, HUD hud, Game game) {
 		this.handler = handler;
 		this.hud = hud;
@@ -85,6 +87,7 @@ public class Spawn1to10 {
 			handler.addObject(new Coin(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), 9, 9, ID.Coin, handler));
 		}
 		
+		//Goes through each level 1 through 10
 		if (levelNumber == 1) {
 			levelTimer--;
 	
@@ -102,7 +105,8 @@ public class Spawn1to10 {
 				spawnTimer = 100;// reset the spawn timer
 			}
 */
-			if (levelTimer == 0) {
+		//Moves on to the next level
+		if (levelTimer == 0) {
 				handler.clearEnemies();
 				hud.setLevel(hud.getLevel() + 1);
 				spawnTimer = 10;
@@ -113,7 +117,8 @@ public class Spawn1to10 {
 				temp = 0;
 				onScreenTimer = 100;
 			}
-			if (onScreenTimer != 0) {
+		//Shows graphics and sound
+		if (onScreenTimer != 0) {
 				if (temp < 1) {
 					Sound.playSoundNewLevel();
 					levelString.setString("Level " + levelNumber);
@@ -124,6 +129,7 @@ public class Spawn1to10 {
 			} else if (onScreenTimer == 0) {
 				handler.removeObject(levelString);
 			}
+		//Level 2
 		} else if (levelNumber == 2) {
 			spawnTimer--;
 			levelTimer--;
@@ -161,6 +167,7 @@ public class Spawn1to10 {
 			} else if (onScreenTimer == 0) {
 				handler.removeObject(levelString);
 			}
+		//Level 3
 		} else if (levelNumber == 3) {
 			levelTimer--;
 		
@@ -195,6 +202,7 @@ public class Spawn1to10 {
 			} else if (onScreenTimer == 0) {
 				handler.removeObject(levelString);
 			}
+		//Level 4
 		} else if (levelNumber == 4) {
 			levelTimer--;
 		
@@ -227,6 +235,7 @@ public class Spawn1to10 {
 			} else if (onScreenTimer == 0) {
 				handler.removeObject(levelString);
 			}
+		//Level 5
 		} else if (levelNumber == 5) {
 			spawnTimer--;
 			levelTimer--;
@@ -270,7 +279,7 @@ public class Spawn1to10 {
 			} else if (onScreenTimer == 0) {
 				handler.removeObject(levelString);
 			}
-
+		//Level 6
 		} else if (levelNumber == 6) {
 			spawnTimer--;
 			levelTimer--;
@@ -306,7 +315,8 @@ public class Spawn1to10 {
 			} else if (onScreenTimer == 0) {
 				handler.removeObject(levelString);
 			}
-		} else if (levelNumber == 7) {// this is level 7
+		//Level 7
+		} else if (levelNumber == 7) {
 			spawnTimer--;// keep decrementing the spawning spawnTimer 60 times a
 							// second
 			levelTimer--;// keep decrementing the level spawnTimer 60 times a
@@ -346,6 +356,7 @@ public class Spawn1to10 {
 			} else if (onScreenTimer == 0) {
 				handler.removeObject(levelString);
 			}
+		//Level 8
 		} else if (levelNumber == 8) {
 			spawnTimer--;
 			levelTimer--;
@@ -381,6 +392,7 @@ public class Spawn1to10 {
 			} else if (onScreenTimer == 0) {
 				handler.removeObject(levelString);
 			}
+		//Level 9
 		} else if (levelNumber == 9) {
 			spawnTimer--;
 			levelTimer--;
@@ -417,7 +429,7 @@ public class Spawn1to10 {
 				handler.removeObject(levelString);
 			}
 		}
-
+		//Level 10
 		else if (levelNumber == 10) {// arbitrary number for the boss
 			
 			if (onScreenTimer != 0) {
@@ -451,7 +463,7 @@ public class Spawn1to10 {
 		}
 		hud.updateLevelText(levelNumber);
 	}
-
+	//Plays new level sound
 	public void playSound(){
 		if(onScreenTimer != 0){
 		if(temp < 1){
@@ -485,6 +497,7 @@ public class Spawn1to10 {
 		}
 	}
 	
+	//Sets level
 	public void setLevelTo(int x) {
 		levelNumber = x;
 		game.gameState = STATE.Game;
@@ -492,6 +505,7 @@ public class Spawn1to10 {
 		spawnTimer = 0;
 	}
 	
+	//Restarts levels
 	public void restart() {
 		if(game.gameState == STATE.Menu ||game.previousGameState==STATE.Game){
 			levelNumber = 1;

@@ -16,6 +16,7 @@ import java.awt.Rectangle;
  * The trail that follows the player and some of the enemies
  * @author Brandon Loehle
  * 5/30/16
+ * Documentation 11/21/19
  *
  */
 
@@ -50,6 +51,7 @@ public class Trail extends GameObject{
 	}
 
 
+	//Renders trail on screen
 	public void render(Graphics g) {
 		Graphics2D g2d = (Graphics2D)g;
 		g2d.setComposite(makeTransparent(alpha));
