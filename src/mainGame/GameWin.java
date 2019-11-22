@@ -11,6 +11,7 @@ import java.awt.geom.AffineTransform;
  * @author Brandon Loehle 5/30/16
  * Implemented by @authoer Mark Russo
  * November 29, 2017
+ * Documentation 11/20/19
  */
 
 public class GameWin {
@@ -22,6 +23,9 @@ public class GameWin {
 	private Color retryColor;
 	private String text;
 
+	/**
+	 * This method creates the game win screen.
+	 */
 	public GameWin(Game game, Handler handler, HUD hud) {
 		this.game = game;
 		this.handler = handler;
@@ -37,6 +41,9 @@ public class GameWin {
 
 	}
 
+	/**
+	 * This method creates/draws the game win screen.
+	 */
 	public void render(Graphics g) {
 		Font font = new Font("Chalkduster", 1, 100);
 		Font font2 = new Font("Times New Roman", 1, 60);

@@ -11,3 +11,5 @@
 6.) This file contains the main method, so you can now click the green arrow at the top toolbar to start the game.
 
 7.) Information on how to play the game is located under the "Help" option in the game menu.
+
+8.) Open WaveGameUML.class.violet.html to view UML diagram. Violet UML Editor software: http://alexdp.free.fr/violetumleditor/page.php

@@ -12,6 +12,7 @@ import java.util.Random;
  * This is the text you see before each set of 10 levels
  * 
  * @author Brandon Loehle 5/30/16
+ * Documentation 11/20/19
  *
  */
 
@@ -24,6 +25,9 @@ public class LevelText extends GameObject {
 	private Random r = new Random();
 	private int index;
 
+	/**
+	 * This method creates the level text.
+	 */
 	public LevelText(double x, double y, String text, ID id) {
 		super(x, y, id);
 		this.text = text;
@@ -31,6 +35,9 @@ public class LevelText extends GameObject {
 		timer = 15;
 	}
 
+	/**
+	 * This method sets what the string of text says.
+	 */
 	public void setString(String text) {
 		this.text = text;
 	}
@@ -40,6 +47,9 @@ public class LevelText extends GameObject {
 
 	}
 
+	/**
+	 * This method creates/draws the level text.
+	 */
 	@Override
 	public void render(Graphics g) {
 		timer--;
@@ -56,6 +66,9 @@ public class LevelText extends GameObject {
 
 	}
 
+	/**
+	 * This method gets the width of the text of the level.
+	 */
 	public int getTextWidth(Font font, String text) {
 		AffineTransform affinetransform = new AffineTransform();
 		FontRenderContext frc = new FontRenderContext(affinetransform, true, true);

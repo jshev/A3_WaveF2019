@@ -12,6 +12,7 @@ import mainGame.Game.STATE;
  * The game over screen
  * 
  * @author Brandon Loehle 5/30/16
+ * Documentation 11/20/19
  *
  */
 
@@ -24,6 +25,9 @@ public class GameOver {
 	private Color retryColor;
 	private String text;
 
+	/**
+	 * This method creates the game over screen.
+	 */
 	public GameOver(Game game, Handler handler, HUD hud) {
 		this.game = game;
 		this.handler = handler;
@@ -38,6 +42,9 @@ public class GameOver {
 
 	}
 
+	/**
+	 * This method creates/draws the game over screen.
+	 */
 	public void render(Graphics g) {
 		if (game.previousGameState == Game.STATE.Survival) {
 			this.hud = game.getSurvivalHud();

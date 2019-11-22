@@ -8,6 +8,7 @@ import java.util.ArrayList;
  * The main Heads Up Display of the game
  * 
  * @author Brandon Loehle 5/30/16
+ * Documentation 11/20/19
  *
  */
 
@@ -32,8 +33,10 @@ public class HUD {
 	private HUDText livesText;
 	private HUDText abilityText;
 	protected ArrayList<HUDElement> HUDElementList;
-	
-	
+
+	/**
+	 * This method has all the text for the heads up display.
+	 */
 	public HUD() {
 		font = new Font("Amoebic", 1, 30);
 		HUDBackground = new HUDRectangle(0, 0, 
@@ -64,35 +67,56 @@ public class HUD {
 	
 	}
 
+	/**
+	 * This method draws the heads up display.
+	 */
 	public void render(Graphics g) {
 		for (HUDElement element : this.HUDElementList) {
 			element.render(g);
 		}
 	}
 
+	/**
+	 * This method updates the score color.
+	 */
 	public void updateScoreColor(Color color) {
 		this.scoreColor = color;
 	}
 
+	/**
+	 * This method updates the health in the heads up display.
+	 */
 	public void updateHealth(int health) {
 		healthBar.setWidth(health * 4);
 		if (health==0){
 			HUDElementList.remove(healthBar);
 		}
 	}
-	
+
+	/**
+	 * This method updates the score in the heads up display.
+	 */
 	public void updateScoreText(int score) {
 		scoreText.setText("Score: " + score);
 	}
-	
+
+	/**
+	 * This method updates the level text in the heads up display.
+	 */
 	public void updateLevelText(int level) {
 		levelText.setText("Level: " + level);
 	}
-	
+
+	/**
+	 * This method updates the lives text in the heads up display.
+	 */
 	public void updateLivesText(int lives) {
 		livesText.setText("Lives: " + lives);
 	}
-	
+
+	/**
+	 * This method creates the text for the upgrades you can use.
+	 */
 	public void updateAbilityText(Player.Ability ability, int abilityUses) {
 		String abilityName = "";
 		switch (ability) {
